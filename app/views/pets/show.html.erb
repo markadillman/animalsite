@@ -1,0 +1,23 @@
+<div class="row">
+  <div class="col-md-6">
+    <div class="thumbnail">
+      <%= image_tag("http://s3.amazonaws.com/kazijams/listings/images/000/000/001/original/shiba_inu_figure.jpg?1451007499") %>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <h3><%= @pet.name %></h3>
+    <p><strong>Species:</strong> <%= @pet.species %></p>
+    <p><strong>Breed:</strong> <%= @pet.breed %></p>
+    <p><strong>Age:</strong> <%= @pet.age %></p>
+    <p><strong>Sex:</strong> <%= @pet.sex %></p>
+    <p><strong>Owner:</strong> <%= @pet.user.fname %></p>
+    <p><%= @pet.description %></p>
+    <br>
+
+  </div>
+</div>
+
+<% if current_user == @pet.user %>
+  <%= link_to 'Edit', edit_pet_path(@pet) %> |
+<% end %>
+<%= link_to 'Back', pets_path %>
