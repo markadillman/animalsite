@@ -23,6 +23,6 @@ class Pet < ActiveRecord::Base
 	end
 
 	belongs_to :user
-	delegate :office to: => :doctor
+	delegate :zip to: => :user
 
 end
