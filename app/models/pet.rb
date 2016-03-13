@@ -1,4 +1,5 @@
 class Pet < ActiveRecord::Base
+
 	searchkick language: ["English"]
 
 	def filter_search(params)
@@ -20,8 +21,8 @@ class Pet < ActiveRecord::Base
 			description: description
 		}
 	end
-	
-		belongs_to :user
-		delegate :zip, :to => :user
+
+	belongs_to :user
+	delegate :office :to => :doctor
 
 end

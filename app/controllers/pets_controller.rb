@@ -9,7 +9,11 @@ class PetsController < ApplicationController
   end
 
   def search
-    matchpet = Pet.search params[:search]
+      if params[:search].present?
+        @pet = Pet.search(params[:search])
+      else
+        @pet = Pet.all
+      end
   end
 
   # GET /pets/1

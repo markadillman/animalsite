@@ -1,0 +1,27 @@
+<div class="row">
+  <% @pet.each do |pet| %>
+    <div class="col-md-3">
+      <div class="thumbnail">
+        <%= link_to image_tag("http://s3.amazonaws.com/kazijams/listings/images/000/000/001/original/shiba_inu_figure.jpg?1451007499"), pet %>
+        <div class="caption">
+          <h3><%= pet.name %></h3>
+          <p>Breed: <%= pet.breed %></p>
+          <p>Age: <%= pet.age %></p>
+          <p>Sex: <%= pet.sex %></p>
+          <p><%= "Owned by #{pet.user.fname}" %></p>
+          <% if current_user == pet.user %>
+            <p><%= link_to 'Show', pet %></p>
+            <p><%= link_to 'Edit', edit_pet_path(pet) %></p>
+            <p><%= link_to 'Destroy', pet, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<br>
+
+<% if user_signed_in? %>
+  <%= link_to 'New Pet', new_pet_path %>
+<% end %>
