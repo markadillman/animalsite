@@ -13,6 +13,7 @@
           <p>Breed: <%= pet.breed %></p>
           <p>Age: <%= pet.age %></p>
           <p>Sex: <%= pet.sex %></p>
+          <p>Zip: <%= pet.zip %></p>
           <p><%= "Owned by #{pet.user.fname}" %></p>
           <% if current_user == pet.user %>
             <p><%= link_to 'Show', pet %></p>
