@@ -23,5 +23,6 @@ class Pet < ActiveRecord::Base
 	end
 
 	belongs_to :user
+	delegates :zip, to :user
 
 end
